@@ -14,14 +14,14 @@
     tasks_from: app-download
 
 - name: Copy Nginx Configuration
-  ansible.builtin.import_role:
+  ansible.builtin.template:
     src: nginx.conf
-    tasks_from: /etc/nginx/nginx.conf
+    dest: /etc/nginx/nginx.conf
 
-- name: Copy RoboShop Nginx Configuration
-  ansible.builtin.import_role:
-    name: roboshop.conf
-    tasks_from: /etc/nginx/default.d/nginx.conf
+- name: Copy RoboSHop Nginx Configuration
+  ansible.builtin.template:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
 
 - name: Restart Nginx Service
   ansible.builtin.systemd:
