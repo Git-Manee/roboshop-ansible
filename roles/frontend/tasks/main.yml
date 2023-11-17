@@ -3,7 +3,7 @@
     name: nginx
     state: installed
 
-- name: Include App Prerequisites
+- name: Include App Pre-clean tasks
   ansible.builtin.import_role:
     name: common
     tasks_from: app-pre-clean
@@ -15,7 +15,7 @@
 
 - name: Copy Nginx Configuration
   ansible.builtin.import_role:
-    name: nginx.conf
+    src: nginx.conf
     tasks_from: /etc/nginx/nginx.conf
 
 - name: Copy RoboShop Nginx Configuration
